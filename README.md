@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/AgeShinobi/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+51.250.109.77
 
-Frontend https://...
+Frontend mesto.ageshinobi.nomoredomains.rocks
 
-Backend https://...
+Backend api.mesto.ageshinobi.nomoredomains.rocks
