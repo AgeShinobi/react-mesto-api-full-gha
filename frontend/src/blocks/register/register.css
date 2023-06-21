@@ -1,0 +1,9 @@
+.register {
+  margin: 60px auto 80px;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 358px;
+}

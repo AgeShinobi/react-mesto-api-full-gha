@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  
+
+  font-family: 'Inter', Arial, sans-serif;
+
+  /* Линия в конце header */
+  border-bottom: 1px solid rgba(84,84,84, .7);
+}

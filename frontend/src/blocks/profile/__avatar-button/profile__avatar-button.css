@@ -1,0 +1,20 @@
+.profile__avatar-button {
+  margin-right: 30px;
+
+  background: transparent url(../../../images/edit-avatar-button.svg);
+  background-repeat: no-repeat;
+  background-size: initial;
+  background-position: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .profile__avatar-button {
+    margin: 0;
+  }
+}

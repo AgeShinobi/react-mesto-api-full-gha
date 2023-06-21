@@ -1,0 +1,23 @@
+.register__input {
+  /* input */
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 0 9px;
+  margin: 30px auto 0;
+
+
+  /* текст */
+  text-align: left;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: left;
+  color: #fff;
+
+  /* line */
+  border-bottom: 1px solid rgba(204, 204, 204, 1);
+}
