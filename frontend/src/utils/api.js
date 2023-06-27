@@ -100,10 +100,9 @@ class Api {
 
 //API с персональными данными входа
 const api = new Api({
-  serverURL: "api.mesto.ageshinobi.nomoredomains.rocks",
+  serverURL: "https://api.mesto.ageshinobi.nomoredomains.rocks",
   headers: {
-    // authorization: "cca8ec76-6bcb-424e-9c96-fedb054f5eaf",
-    // "Content-Type": "application/json",
+    "Content-Type": "application/json",
   }
 });
 
