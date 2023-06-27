@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-51.250.109.77
+IP 51.250.109.77
 
-Frontend mesto.ageshinobi.nomoredomains.rocks
+Frontend https://mesto.ageshinobi.nomoredomains.rocks/
 
-Backend api.mesto.ageshinobi.nomoredomains.rocks
+Backend https://api.mesto.ageshinobi.nomoredomains.rocks/

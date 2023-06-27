@@ -11,6 +11,13 @@ const notFound = require('./notFound');
 // Middlewares
 const auth = require('../middlewares/auth');
 
+// Crash test
+mainRouter.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // Methods
 mainRouter.use('/signup', signup);
 mainRouter.use('/signin', signin);

@@ -13,6 +13,7 @@ const { PORT } = require('./config');
 // Import Middlewares
 const error = require('./middlewares/errors');
 const cors = require('./middlewares/cors');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // Celebrate Joi Validator Middleware
 const { errors } = require('celebrate');
@@ -25,10 +26,14 @@ mongoose.connect(DATABASE_URL);
 // App
 const app = express();
 
+app.use(requestLogger);
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors);
 app.use(mainRouter);
+
+app.use(errorLogger);
 
 app.use(errors());
 app.use(error);
