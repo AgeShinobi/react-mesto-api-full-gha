@@ -5,14 +5,13 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
 
 const { DATABASE_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const { PORT } = require('./config');
 
 // Import Middlewares
 const error = require('./middlewares/errors');
-const cors = require('./middlewares/cors');
+const { cors } = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // Celebrate Joi Validator Middleware
@@ -29,7 +28,6 @@ const app = express();
 app.use(requestLogger);
 
 app.use(express.json());
-app.use(cookieParser());
 app.use(cors);
 app.use(mainRouter);
 
