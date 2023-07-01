@@ -27,12 +27,9 @@ class Api {
 
   // 2. Загрузка карточек с сервера
   getInitialCards() {
-    const abobus = this._request(this.serverURL + "/cards", {
+    return this._request(this.serverURL + "/cards", {
       headers: this.headers,
     })
-    console.log('abobus', abobus);
-    console.log('abobus', abobus.data);
-    return abobus;
   }
 
   // 3. Редактирование профиля

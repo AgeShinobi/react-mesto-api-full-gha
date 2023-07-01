@@ -92,7 +92,6 @@ function App() {
       setLoggedIn(true);
       setEmail(user.email);
       setCurrentUser(user);
-      console.log(user);
       navigate("/", { replace: true })
     } catch (err) {
       console.log(err);
@@ -135,7 +134,6 @@ function App() {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     (isLiked ? api.removeLike(card._id) : api.like(card._id))
       .then((newCard) => {
-        console.log(newCard);
         setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
       })
       .catch((err) => { console.log(err) });
