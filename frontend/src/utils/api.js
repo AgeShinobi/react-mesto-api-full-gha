@@ -105,8 +105,8 @@ class Api {
 
 //API с персональными данными входа
 const api = new Api({
-  // serverURL: "https://api.mesto.ageshinobi.nomoredomains.rocks",
-  serverURL: "http://localhost:3000",
+  serverURL: "https://api.mesto.ageshinobi.nomoredomains.rocks",
+  // serverURL: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
   }
