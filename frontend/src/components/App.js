@@ -90,14 +90,16 @@ function App() {
         throw new Error('no user');
       }
       setLoggedIn(true);
-      setEmail(user.data.email);
+      setEmail(user.email);
+      setCurrentUser(user);
+      console.log(user);
       navigate("/", { replace: true })
     } catch (err) {
       console.log(err);
     } finally {
       setLoading(false);
     }
-  }, [setLoggedIn, setEmail, navigate]);
+  }, [setLoggedIn, setEmail, setCurrentUser, navigate]);
 
   const cbLogout = () => {
     localStorage.removeItem(JWT_KEY);
@@ -133,7 +135,8 @@ function App() {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     (isLiked ? api.removeLike(card._id) : api.like(card._id))
       .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        console.log(newCard);
+        setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
       })
       .catch((err) => { console.log(err) });
   }
@@ -149,7 +152,7 @@ function App() {
   function handleAddPlace(values) {
     api.createCard(values)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => { console.log(err) });
@@ -158,7 +161,7 @@ function App() {
   function handleUpdateUser(data) {
     api.profileEdit(data)
       .then((newData) => {
-        setCurrentUser(newData);
+        setCurrentUser(newData.user);
         closeAllPopups();
       })
       .catch((err) => { console.log(err) });
@@ -166,8 +169,8 @@ function App() {
   //обновление аватара пользователя
   function handleUpdateAvatar(data) {
     api.changeAvatar(data)
-      .then((newAvatar) => {
-        setCurrentUser(newAvatar);
+      .then((newData) => {
+        setCurrentUser(newData.user);
         closeAllPopups();
       })
       .catch((err) => { console.log(err) })
@@ -205,7 +208,7 @@ function App() {
       Promise.all([api.getUserData(), api.getInitialCards()])
         .then(([userData, cards]) => {
           setCurrentUser(userData);
-          setCards(cards);
+          setCards(cards.data);
         })
         .catch((err) => { console.log(err) });
     }

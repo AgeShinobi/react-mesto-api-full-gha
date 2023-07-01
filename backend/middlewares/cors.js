@@ -3,13 +3,13 @@ const allowedCors = [
   'http://mesto.ageshinobi.nomoredomains.rocks',
   'https://api.mesto.ageshinobi.nomoredomains.rocks',
   'http://api.mesto.ageshinobi.nomoredomains.rocks',
-  'https://localhost:3000',
-  'http://localhost:3000',
+  'https://localhost:3001',
+  'http://localhost:3001',
 ];
 
 const cors = (req, res, next) => {
-  const { method } = req;
   const { origin } = req.headers;
+  const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
   const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
 

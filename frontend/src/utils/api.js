@@ -2,6 +2,7 @@ class Api {
   constructor({ serverURL, headers }) {
     this.serverURL = serverURL;
     this.headers = headers;
+    // this.headers.authorization = `Bearer ${localStorage.jwt}`;
   }
 
 
@@ -13,6 +14,7 @@ class Api {
   }
 
   _request(url, options) {
+    options.headers.authorization = `Bearer ${localStorage.jwt}`;
     return fetch(url, options).then(this._getResVerify)
   }
 
@@ -25,9 +27,12 @@ class Api {
 
   // 2. Загрузка карточек с сервера
   getInitialCards() {
-    return this._request(this.serverURL + "/cards", {
+    const abobus = this._request(this.serverURL + "/cards", {
       headers: this.headers,
     })
+    console.log('abobus', abobus);
+    console.log('abobus', abobus.data);
+    return abobus;
   }
 
   // 3. Редактирование профиля
@@ -88,19 +93,20 @@ class Api {
     })
   }
 
-  changeLikeCardStatus(id, isLiked) {
-    if (!isLiked) {
-      this.like(id);
-    } else {
-      this.removeLike(id);
-    }
-  }
+  // changeLikeCardStatus(id, isLiked) {
+  //   if (!isLiked) {
+  //     this.like(id);
+  //   } else {
+  //     this.removeLike(id);
+  //   }
+  // }
   
 }
 
 //API с персональными данными входа
 const api = new Api({
-  serverURL: "https://api.mesto.ageshinobi.nomoredomains.rocks",
+  // serverURL: "https://api.mesto.ageshinobi.nomoredomains.rocks",
+  serverURL: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
   }
